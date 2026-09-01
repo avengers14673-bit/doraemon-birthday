@@ -248,6 +248,26 @@ h1 span{
   }
 }
 
+.portal{
+  font-size:80px;
+  display:inline-block;
+  animation:portalSpin 2s linear infinite;
+  filter:drop-shadow(0 0 25px #00b7ff);
+  margin-bottom:20px;
+}
+
+@keyframes portalSpin{
+  0%{
+    transform:rotate(0deg) scale(1);
+  }
+  50%{
+    transform:rotate(180deg) scale(1.15);
+  }
+  100%{
+    transform:rotate(360deg) scale(1);
+  }
+}
+
 #surprise h2{
   font-family:Orbitron,sans-serif;
   color:#00b7ff;
@@ -258,6 +278,47 @@ h1 span{
 #surprise p{
   color:#b9c8d8;
   line-height:1.8;
+}
+
+.surprise-message{
+  margin-top:20px;
+  font-size:20px;
+  font-weight:700;
+  color:#00c8ff !important;
+}
+
+.gadgets{
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  margin-top:25px;
+  font-size:35px;
+}
+
+.gadgets span{
+  display:inline-block;
+  animation:gadgetFloat 2s ease-in-out infinite;
+}
+
+.gadgets span:nth-child(2){
+  animation-delay:.2s;
+}
+
+.gadgets span:nth-child(3){
+  animation-delay:.4s;
+}
+
+.gadgets span:nth-child(4){
+  animation-delay:.6s;
+}
+
+@keyframes gadgetFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-10px);
+  }
 }
 
 /* 4D POCKET */
@@ -371,6 +432,11 @@ footer span{
   .date-box{
     gap:12px;
   }
+
+  .gadgets{
+    gap:15px;
+    font-size:28px;
+  }
 }
 </style>
 </head>
@@ -445,23 +511,28 @@ footer span{
 
     <div id="surprise">
 
+      <div class="portal">
+        🌀
+      </div>
+
       <h2>
-        THE SURPRISE IS HERE
+        WELCOME TO THE 4D POCKET
       </h2>
 
       <p>
-        From the 22nd century to today —
-        Doraemon has been part of countless adventures,
-        impossible gadgets and unforgettable memories.
+        You've entered Doraemon's world.
       </p>
 
-      <br>
-
-      <p>
-        <b style="color:#00b7ff">
-          HAPPY BIRTHDAY, DORAEMON!
-        </b>
+      <p class="surprise-message">
+        ✨ HAPPY BIRTHDAY, DORAEMON! 💙
       </p>
+
+      <div class="gadgets">
+        <span>🔦</span>
+        <span>🚪</span>
+        <span>🎩</span>
+        <span>🪄</span>
+      </div>
 
     </div>
 
@@ -520,7 +591,6 @@ function openSurprise(){
 
   document.getElementById("surprise").style.display="block";
 
-
   for(let i=0;i<100;i++){
 
     const c=document.createElement("div");
@@ -541,13 +611,11 @@ function openSurprise(){
 
     document.body.appendChild(c);
 
-
     setTimeout(()=>{
       c.remove();
     },4500);
 
   }
-
 
   document.getElementById("surprise")
     .scrollIntoView({
