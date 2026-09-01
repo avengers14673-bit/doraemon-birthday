@@ -26,8 +26,6 @@ body{
   overflow-x:hidden;
 }
 
-/* BACKGROUND */
-
 body::before{
   content:"";
   position:fixed;
@@ -136,6 +134,8 @@ h1 span{
   letter-spacing:2px;
 }
 
+/* DORAEMON IMAGE */
+
 .doraemon-wrap{
   margin:35px auto 25px;
   width:min(300px,75vw);
@@ -238,8 +238,14 @@ h1 span{
 }
 
 @keyframes appear{
-  from{opacity:0;transform:translateY(25px)}
-  to{opacity:1;transform:translateY(0)}
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
 
 #surprise h2{
@@ -254,7 +260,7 @@ h1 span{
   line-height:1.8;
 }
 
-/* COUNTDOWN */
+/* 4D POCKET */
 
 .section{
   padding:90px 20px;
@@ -273,43 +279,17 @@ h1 span{
   margin-bottom:35px;
 }
 
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.time{
-  width:100px;
-  padding:20px 10px;
-  border:1px solid rgba(0,180,255,.25);
-  background:rgba(255,255,255,.03);
-  border-radius:15px;
-}
-
-.time strong{
-  display:block;
-  font-family:Orbitron,sans-serif;
-  font-size:28px;
-  color:#00b7ff;
-}
-
-.time small{
-  color:#71839a;
-  letter-spacing:2px;
-  font-size:9px;
-}
-
-/* POCKET */
-
 .pocket{
   width:min(500px,90vw);
   margin:30px auto;
   padding:35px;
   border-radius:25px;
   background:
-    linear-gradient(145deg,rgba(0,140,255,.14),rgba(0,30,70,.35));
+    linear-gradient(
+      145deg,
+      rgba(0,140,255,.14),
+      rgba(0,30,70,.35)
+    );
   border:1px solid rgba(0,180,255,.25);
 }
 
@@ -391,14 +371,6 @@ footer span{
   .date-box{
     gap:12px;
   }
-
-  .time{
-    width:76px;
-  }
-
-  .time strong{
-    font-size:21px;
-  }
 }
 </style>
 </head>
@@ -408,9 +380,15 @@ footer span{
 <div class="stars"></div>
 
 <nav>
-  <div class="logo">DORAEMON<span>2112</span></div>
-  <div class="nav-date">BIRTHDAY EXPERIENCE</div>
+  <div class="logo">
+    DORAEMON<span>2112</span>
+  </div>
+
+  <div class="nav-date">
+    BIRTHDAY EXPERIENCE
+  </div>
 </nav>
+
 
 <section class="hero">
 
@@ -430,33 +408,44 @@ footer span{
       03 SEPTEMBER • THE FUTURE'S FAVOURITE CAT
     </p>
 
+
     <div class="doraemon-wrap">
 
       <img
         class="doraemon"
-        src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Doraemon_Anime_Outline.png"
+        src="doraemon.png"
         alt="Doraemon"
       >
 
     </div>
 
+
     <div class="date-box">
-      <div class="date-number">03</div>
+
+      <div class="date-number">
+        03
+      </div>
+
       <div class="date-text">
         SEPTEMBER<br>
         BIRTHDAY DAY
       </div>
+
     </div>
 
     <br>
+
 
     <button class="btn" onclick="openSurprise()">
       ✦ OPEN THE 4D POCKET
     </button>
 
+
     <div id="surprise">
 
-      <h2>THE SURPRISE IS HERE</h2>
+      <h2>
+        THE SURPRISE IS HERE
+      </h2>
 
       <p>
         From the 22nd century to today —
@@ -482,43 +471,6 @@ footer span{
 <section class="section">
 
   <div class="section-title">
-    THE COUNTDOWN
-  </div>
-
-  <div class="section-sub">
-    Waiting for the most special day
-  </div>
-
-  <div class="countdown">
-
-    <div class="time">
-      <strong id="days">00</strong>
-      <small>DAYS</small>
-    </div>
-
-    <div class="time">
-      <strong id="hours">00</strong>
-      <small>HOURS</small>
-    </div>
-
-    <div class="time">
-      <strong id="minutes">00</strong>
-      <small>MINUTES</small>
-    </div>
-
-    <div class="time">
-      <strong id="seconds">00</strong>
-      <small>SECONDS</small>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="section">
-
-  <div class="section-title">
     THE 4D POCKET
   </div>
 
@@ -526,11 +478,16 @@ footer span{
     Where impossible things become possible
   </div>
 
+
   <div class="pocket">
 
-    <div class="pocket-icon">🌀</div>
+    <div class="pocket-icon">
+      🌀
+    </div>
 
-    <h3>WELCOME TO THE FUTURE</h3>
+    <h3>
+      WELCOME TO THE FUTURE
+    </h3>
 
     <p>
       One pocket. Infinite possibilities.
@@ -544,23 +501,23 @@ footer span{
 
 <footer>
 
-  Made with <span>💙</span> for Doraemon's Birthday • 03 September
+  Made with <span>💙</span>
+  for Doraemon's Birthday • 03 September
 
   <br><br>
 
   Doraemon image:
-  Bananado / Wikimedia Commons • CC BY-SA 4.0
+  Wikimedia Commons
 
 </footer>
 
 
 <script>
 
-/* SURPRISE */
-
 function openSurprise(){
 
   document.getElementById("surprise").style.display="block";
+
 
   for(let i=0;i<100;i++){
 
@@ -577,9 +534,11 @@ function openSurprise(){
       "#ffd43b"
     ][Math.floor(Math.random()*4)];
 
-    c.style.animationDuration=(2+Math.random()*2)+"s";
+    c.style.animationDuration=
+      (2+Math.random()*2)+"s";
 
     document.body.appendChild(c);
+
 
     setTimeout(()=>{
       c.remove();
@@ -587,77 +546,13 @@ function openSurprise(){
 
   }
 
+
   document.getElementById("surprise")
-    .scrollIntoView({behavior:"smooth"});
+    .scrollIntoView({
+      behavior:"smooth"
+    });
 
 }
-
-
-/* COUNTDOWN */
-
-function updateCountdown(){
-
-  const now=new Date();
-
-  let year=now.getFullYear();
-
-  let birthday=new Date(
-    year,
-    8,
-    3,
-    0,
-    0,
-    0
-  );
-
-  if(now>birthday){
-
-    birthday=new Date(
-      year+1,
-      8,
-      3,
-      0,
-      0,
-      0
-    );
-
-  }
-
-  const difference=birthday-now;
-
-  const days=Math.floor(
-    difference/(1000*60*60*24)
-  );
-
-  const hours=Math.floor(
-    difference/(1000*60*60)%24
-  );
-
-  const minutes=Math.floor(
-    difference/(1000*60)%60
-  );
-
-  const seconds=Math.floor(
-    difference/1000%60
-  );
-
-  document.getElementById("days").textContent=
-    String(days).padStart(2,"0");
-
-  document.getElementById("hours").textContent=
-    String(hours).padStart(2,"0");
-
-  document.getElementById("minutes").textContent=
-    String(minutes).padStart(2,"0");
-
-  document.getElementById("seconds").textContent=
-    String(seconds).padStart(2,"0");
-
-}
-
-updateCountdown();
-
-setInterval(updateCountdown,1000);
 
 </script>
 
